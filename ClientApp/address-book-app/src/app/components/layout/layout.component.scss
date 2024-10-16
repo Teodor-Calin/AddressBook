@@ -1,0 +1,64 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #f4f4f4;
+$text-color: #333;
+$footer-bg-color: #333;
+$footer-text-color: #fff;
+
+// Global styles for html and body
+html, body {
+  height: 100%; // Ensure full height
+  margin: 0; // Remove default margin
+  font-family: Arial, sans-serif;
+}
+
+// Layout container
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Full height of the viewport
+  background-color: $background-color;
+
+  header {
+    background-color: $primary-color;
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+
+  main {
+    flex: 1; // Allow main to grow and fill available space
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // // Styling for the router outlet or any content that will be placed here
+    // router-outlet {
+    //   width: 100%;
+    //   max-width: 800px;
+    //   background: white;
+    //   border-radius: 5px;
+    //   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    //   padding: 20px;
+    // }
+  }
+
+  footer {
+    background-color: $footer-bg-color;
+    color: $footer-text-color;
+    text-align: center;
+    padding: 10px 0;
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+// Variables
+$loading-bg-color: #f0f8ff;
+$error-bg-color: #f8d7da;
+$error-text-color: #721c24;
+$contact-details-bg-color: #fff;
+$contact-name-color: #333;
+$address-title-color: #666;
+$address-item-bg-color: #f9f9f9;
+$address-item-hover-bg-color: #f1f1f1;
+$border-color: #ddd;
+$padding: 15px;
+
+// Contact Details Container
+.contact-details {
+  padding: $padding;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  margin: 20px auto; // Center the container
+  max-width: 600px; // Limit width for better readability
+  background-color: $contact-details-bg-color;
+
+  &.loading {
+    background-color: $loading-bg-color;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &.error {
+    background-color: $error-bg-color;
+    color: $error-text-color;
+    padding: $padding;
+    border: 1px solid darken($error-bg-color, 10%);
+    border-radius: 5px;
+    margin-bottom: 20px; // Space between error message and other content
+  }
+}
+
+// Contact Name Styles
+.contact-name {
+  font-size: 2rem;
+  color: $contact-name-color;
+  margin-bottom: 10px;
+}
+
+// Addresses Title
+.addresses-title {
+  font-size: 1.5rem;
+  color: $address-title-color;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+// Address Type Styles
+.address-type {
+  margin-bottom: 15px;
+
+  .address-type-title {
+    font-size: 1.3rem;
+    color: $contact-name-color;
+    margin-bottom: 5px;
+  }
+
+  .address-list {
+    list-style: none;
+    padding: 0;
+
+    .address-item {
+      background-color: $address-item-bg-color;
+      padding: 10px;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $address-item-hover-bg-color; // Change on hover
+      }
+    }
+  }
+}

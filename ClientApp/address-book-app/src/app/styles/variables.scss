@@ -1,0 +1,29 @@
+// _variables.scss
+
+// Color Palette
+$color-primary: #3498db;       // Main theme color
+$color-secondary: #2ecc71;     // Secondary color
+$color-success: #28a745;       // Success color
+$color-danger: #e74c3c;        // Danger color
+$color-light: #ecf0f1;         // Light background color
+$color-dark: #2c3e50;          // Dark text color
+
+// Font Sizes
+$font-size-large: 2rem;        // Large text (Headings)
+$font-size-medium: 1.5rem;     // Medium text (Subheadings)
+$font-size-base: 1rem;         // Base text (Paragraphs)
+$font-size-small: 0.875rem;    // Small text
+
+// Spacing
+$spacing-small: 0.5rem;
+$spacing-base: 1rem;
+$spacing-large: 1.5rem;
+
+// Border Radius
+$border-radius: 8px;           // Rounded corners
+
+// Shadows
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition: 0.3s ease;         // Transition timing
