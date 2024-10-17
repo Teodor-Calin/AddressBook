@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using AddressBook.DataAccess;
 using AddressBook.Application;
+using AddressBook.DataAccess.Repositories;
 
 internal class Program
 {
@@ -8,8 +9,8 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
         builder.Services.AddScoped<IContactsService, ContactsService>();
+        builder.Services.AddScoped<IContactsRepository, ContactsRepository>();
 
         builder.Services.AddControllers();
 

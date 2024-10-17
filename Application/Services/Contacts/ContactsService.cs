@@ -1,4 +1,5 @@
 ﻿using AddressBook.DataAccess;
+using AddressBook.DataAccess.Repositories;
 using AddressBook.Domain;
 using Application.ServiceModels;
 using Microsoft.EntityFrameworkCore;
@@ -9,27 +10,30 @@ namespace AddressBook.Application;
 
 public class ContactsService : IContactsService
 {
-    private readonly DataContext _context;
+    //private readonly DataContext _context;
+    private readonly IContactsRepository _contactsRepository;
 
-    public ContactsService(DataContext context)
+    public ContactsService(IContactsRepository contactsRepository)
     {
-        _context = context;
+//        _context = context;
+          _contactsRepository= contactsRepository;
     }
 
 
-public ContactListResponseModel GetAll(int page, int size)
+    public async Task<ContactListResponseModel> GetAll(int page, int size)
     {
 
-        var contact = _context.Contacts
+        var contact = await _contactsRepository.GetAllContacts()
                 .Skip(page * size)
                 .Take(size)
                 .Select(c => new ContactListItemModel
                 {
                     Id = c.Id,
                     Name = c.Name
-                });
+                })
+                .ToListAsync();
 
-        var total = _context.Contacts.Count();
+        var total = await _contactsRepository.GetCount();
 
         return new ContactListResponseModel
         {
@@ -38,16 +42,18 @@ public ContactListResponseModel GetAll(int page, int size)
         };
     }
 
-    public async Task<ContactDetailsModel> GetById(int id)
+    public async Task<ContactDetailsModel?> GetById(int id)
     {
-        var contact =  await _context.Contacts
-            .Where(c => c.Id == id)
-            .Include(c => c.Addresses)
-            .SingleOrDefaultAsync(c => c.Id == id);
+        //var contact =  await _context.Contacts
+        //    .Where(c => c.Id == id)
+        //    .Include(c => c.Addresses)
+        //    .SingleOrDefaultAsync(c => c.Id == id);
+
+        var contact = await _contactsRepository.GetContactById(id);
 
         if (contact == null)
         {
-            return null;
+            return (ContactDetailsModel) null;
         }
 
         return new ContactDetailsModel

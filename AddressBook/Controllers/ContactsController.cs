@@ -17,16 +17,16 @@ public class ContactsController : ControllerBase
 
     [Route("api/contacts")]
     [HttpGet]
-    public IActionResult GetAllContacts([FromQuery] int page = 0, [FromQuery] int size = 10)
+    public async Task<IActionResult> GetAllContacts([FromQuery] int page = 0, [FromQuery] int size = 5)
     {
-        var contacts = _contactsService.GetAll(page, size);
+        var contacts = await _contactsService.GetAll(page, size);
 
         return Ok(contacts);
     }
 
     [Route("api/contacts/{id}")]
     [HttpGet]
-    public async Task<ActionResult<ContactDetailsModel>> GetContactById(int id)
+    public async Task<IActionResult> GetContactById(int id)
     {
         try
         {
