@@ -1,11 +1,15 @@
 <div class="contact-details" *ngIf="loading">Loading contact details...</div>
-<!-- <div class="contact-details" *ngIf="error !== undefined && !loading" class="error">{{ error }}</div> -->
 <div class="contact-details" *ngIf="contact && !loading">
   <h2 class="contact-name">Contact Details for {{ contact.name }}</h2>
 
   <h3 class="addresses-title">Addresses:</h3>
-  <div *ngFor="let addressType of addressesByType | keyvalue"  class="address-type">
-    <h4 class="address-type-title">{{ getAddressTypeName(addressType.key) }}:</h4> <!-- This displays the address type -->
+  <div
+    *ngFor="let addressType of addressesByType | keyvalue"
+    class="address-type"
+  >
+    <h4 class="address-type-title">
+      {{ getAddressTypeName(addressType.key) }}:
+    </h4>
     <ul class="address-list">
       <li *ngFor="let address of addressType.value" class="address-item">
         {{ address.street }}, {{ address.city }}, {{ address.zipCode }}

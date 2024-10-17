@@ -1,4 +1,3 @@
-// Variables
 $loading-bg-color: #f0f8ff;
 $error-bg-color: #f8d7da;
 $error-text-color: #721c24;
@@ -10,13 +9,12 @@ $address-item-hover-bg-color: #f1f1f1;
 $border-color: #ddd;
 $padding: 15px;
 
-// Contact Details Container
 .contact-details {
   padding: $padding;
   border: 1px solid $border-color;
   border-radius: 5px;
-  margin: 20px auto; // Center the container
-  max-width: 600px; // Limit width for better readability
+  margin: 20px auto;
+  max-width: 600px;
   background-color: $contact-details-bg-color;
 
   &.loading {
@@ -32,18 +30,16 @@ $padding: 15px;
     padding: $padding;
     border: 1px solid darken($error-bg-color, 10%);
     border-radius: 5px;
-    margin-bottom: 20px; // Space between error message and other content
+    margin-bottom: 20px;
   }
 }
 
-// Contact Name Styles
 .contact-name {
   font-size: 2rem;
   color: $contact-name-color;
   margin-bottom: 10px;
 }
 
-// Addresses Title
 .addresses-title {
   font-size: 1.5rem;
   color: $address-title-color;
@@ -51,7 +47,6 @@ $padding: 15px;
   margin-bottom: 10px;
 }
 
-// Address Type Styles
 .address-type {
   margin-bottom: 15px;
 
@@ -74,7 +69,7 @@ $padding: 15px;
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: $address-item-hover-bg-color; // Change on hover
+        background-color: $address-item-hover-bg-color;
       }
     }
   }
